@@ -1,12 +1,10 @@
 import classNames from 'classnames/bind';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import firebase, { auth } from '@/components/Firebase';
 
 import styles from './Login.module.scss';
-import { addPost } from '@/app/appSlice/user';
-import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -17,13 +15,9 @@ function Login() {
     const phonePRovider = new firebase.auth.PhoneAuthProvider();
     const gitPRovider = new firebase.auth.GithubAuthProvider();
 
-    const dispatch = useDispatch();
-
     const userJ = useSelector((state) => state.User[0]);
 
     console.log(userJ);
-
-    let history = useNavigate();
 
     const handleLoginFacebook = () => {
         auth.signInWithPopup(fbPRovider);
@@ -44,18 +38,6 @@ function Login() {
     const handleLoginGit = () => {
         auth.signInWithPopup(gitPRovider);
     };
-
-    useEffect(() => {
-        const unmounted = auth.onAuthStateChanged((user) => {
-            if (user) {
-                dispatch(addPost(user));
-                history('/chatapp');
-            }
-        });
-
-        return () => unmounted();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <div className={cx('wrapper')}>

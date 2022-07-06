@@ -1,0 +1,176 @@
+@import 'antd/dist/antd.css';
+
+.wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.side {
+    background-image: linear-gradient(to bottom, purple, pink);
+    height: 100%;
+}
+
+.content {
+    height: 100%;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.parents {
+    align-items: center;
+
+    p {
+        padding-left: 10px;
+    }
+}
+
+.name-r-e {
+    align-items: center;
+
+    button {
+        cursor: pointer;
+        height: 30px;
+        width: 100px;
+        border-radius: 4px;
+        border: none;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+.user-info {
+    padding: 10px 0;
+    padding-left: 6px;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.body-slider-header {
+    align-items: center;
+    padding: 15px 0;
+
+    border-bottom: 1px solid #ccc;
+
+    svg {
+        padding: 0 10px;
+        color: #fff;
+    }
+
+    h4 {
+        color: #f5f5f5;
+    }
+}
+
+.room-slider {
+    height: 500px;
+    overflow-y: scroll;
+
+    p {
+        color: #fff;
+        padding: 6px 10px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+            cursor: pointer;
+        }
+    }
+}
+
+.add_room {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+
+    p {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
+
+.chat-body-app-header {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.header-one-app {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+        font-size: 20px;
+        padding: 0;
+        line-height: 20px;
+        margin: 0;
+    }
+
+    span {
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+    }
+}
+
+.header-two-app {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.Avatar-f-r-e {
+    margin-left: 8px;
+}
+
+.body-chat-text {
+    margin-top: 10px;
+    height: 550px;
+    max-height: 60%;
+    overflow-y: scroll;
+}
+
+.df-tr-ef-s {
+    width: 95%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 35px;
+
+    button {
+        flex: 1;
+    }
+}
+
+.input-send {
+    width: 90%;
+    border: none;
+    outline: none;
+}
