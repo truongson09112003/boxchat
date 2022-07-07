@@ -1,12 +1,23 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import 'firebase/compat/auth';
+
 import firebase, { auth } from '@/components/Firebase';
 
 import styles from './Login.module.scss';
 import { addDocument, generateKeywords } from './../../../../components/Firebase/services';
 
 const cx = classNames.bind(styles);
+
+const uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'redirect',
+    signInSuccessUrl: '/chatapp',
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [firebase.auth.FacebookAuthProvider.PROVIDER_ID],
+};
 
 function Login() {
     const fbPRovider = new firebase.auth.FacebookAuthProvider();
@@ -88,7 +99,10 @@ function Login() {
                 </div>
                 <div className={cx('btn-login')}>
                     <button onClick={handleLoginGoogle}>Đăng Nhập Với Google</button>
-                    <button onClick={() => handleLoginFacebook(fbPRovider)}>Đăng Nhập Với Facebook</button>
+                    {/* <button onClick={() => handleLoginFacebook(fbPRovider)}>Đăng Nhập Với Facebook</button> */}
+                    <button>
+                        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+                    </button>
                     <button onClick={handleLoginEmail}>Đăng Nhập Với Email</button>
                     <button onClick={handleLoginPhone}>Đăng Nhập Với SDT</button>
                     <button onClick={handleLoginGit}>Đăng Nhập Với Github</button>
