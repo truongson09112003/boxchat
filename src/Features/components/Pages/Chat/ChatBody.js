@@ -42,6 +42,7 @@ function ChatBody() {
         });
 
         form.resetFields(['message']);
+        form.resetFields();
 
         // focus to input again after submit
         if (inputRef?.current) {

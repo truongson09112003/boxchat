@@ -122,18 +122,36 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 46%;
 
     p {
         font-size: 20px;
         padding: 0;
         line-height: 20px;
         margin: 0;
+        white-space: nowrap;
+        width: 82%;
+        overflow: hidden;
+        overflow-x: auto;
     }
 
     span {
         padding: 0;
         margin: 0;
+        white-space: nowrap;
+        width: 82%;
+        overflow: hidden;
         font-size: 16px;
+        overflow-x: auto;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    p::-webkit-scrollbar {
+        display: none;
+    }
+    span::-webkit-scrollbar {
+        display: none;
     }
 }
 
@@ -190,7 +208,15 @@
     display: none;
 }
 
+.btn-logout-mobile {
+    display: none;
+}
+
 @media (max-width: 739px) {
+    .body-chat-text-group::-webkit-scrollbar {
+        display: none;
+    }
+
     .menu-item-mobile {
         display: block;
         position: fixed;
@@ -200,6 +226,12 @@
         right: 0;
         background-color: #fff;
         z-index: 999;
+    }
+
+    .btn-logout-mobile {
+        display: block;
+        margin-left: auto;
+        margin-right: 10px;
     }
 
     .body-slider-header {
@@ -216,6 +248,9 @@
 
     .chat-body-app-header {
         align-items: center;
+        background-color: #fff;
+        z-index: 99999;
+        max-height: 46px;
     }
 
     .sd-fde-er {
