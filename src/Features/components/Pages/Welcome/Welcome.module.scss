@@ -100,6 +100,59 @@
     }
 }
 
+@media (max-width: 739px) {
+    .Header {
+        text-align: center;
+
+        h2 {
+            font-size: 14px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
+
+    .container {
+        padding: 0 6px;
+
+        h2 {
+            font-size: 18px;
+        }
+
+        span {
+            font-size: 18px;
+            padding-left: 100px;
+            text-align: center;
+        }
+    }
+
+    .footer {
+        width: 95%;
+
+        h2 {
+            font-size: 20px;
+            color: #fff;
+            white-space: nowrap;
+            width: 50%;
+        }
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            white-space: nowrap;
+            margin-right: 50px;
+            color: #fff;
+        }
+    }
+
+    .pyro {
+        display: none !important;
+    }
+}
+
 // css Pháo Hoa
 
 .pyro {

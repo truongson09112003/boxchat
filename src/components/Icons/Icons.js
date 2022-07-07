@@ -1,13 +1,13 @@
 export const GoogleICon = ({ className }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="118px"
-        height="120px"
+        width="18px"
+        height="18px"
         viewBox="0 0 118 120"
         version="1.1"
         className={className}
     >
-        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g id="Artboard-1" transform="translate(-332.000000, -639.000000)">
                 <g id="google_buttn" transform="translate(332.000000, 639.000000)">
                     <g id="logo_googleg_48dp">

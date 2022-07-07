@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { AuthContextTU } from '@/components/Context/authContext';
 import classNames from 'classnames/bind';
 
 import styles from './Chat.module.scss';
@@ -9,8 +7,6 @@ import ChatBody from './ChatBody';
 const cx = classNames.bind(styles);
 
 function ChatApp() {
-    const data = useContext(AuthContextTU);
-
     return (
         <div className={cx('wrapper')}>
             <div className={cx('row no-gutters', 'content')}>

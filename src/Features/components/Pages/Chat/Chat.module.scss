@@ -181,3 +181,57 @@
     border: none;
     outline: none;
 }
+
+.chat-body-app-header-warning-mobile {
+    margin-top: 30px;
+}
+
+.menu-item-mobile {
+    display: none;
+}
+
+@media (max-width: 739px) {
+    .menu-item-mobile {
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #fff;
+        z-index: 999;
+    }
+
+    .body-slider-header {
+        h4 {
+            color: #000 !important;
+        }
+    }
+
+    .room-slider {
+        p {
+            color: #000;
+        }
+    }
+
+    .chat-body-app-header {
+        align-items: center;
+    }
+
+    .sd-fde-er {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 90%;
+    }
+
+    .body-chat-text {
+        height: 90%;
+        max-height: 90%;
+    }
+
+    .footer-slider {
+        margin-top: 0px;
+    }
+}

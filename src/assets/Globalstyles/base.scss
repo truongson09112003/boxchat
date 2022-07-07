@@ -13,6 +13,80 @@ body {
 }
 
 .ant-form-item {
-    flex: 1;
+    flex: 0.8;
     margin-bottom: 0;
+    border: 0.5px solid #ccc;
+    border-radius: 2px;
+}
+
+.chat-body-app-header-menu-mobile {
+    display: none;
+}
+
+.menu-item-mobile-slider {
+    display: none;
+}
+
+@media (max-width: 739px) {
+    .chat-body-app-header-menu-mobile {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 10px;
+
+        svg {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        p {
+            margin: 0;
+            margin-left: 10px;
+        }
+    }
+
+    .menu-item-mobile-slider {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #fff;
+        z-index: 99999;
+        transform: translateX(-100%);
+        opacity: 0;
+
+        .close-item-mobile {
+            position: absolute;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border: none;
+            font-weight: 600;
+            background-color: transparent;
+            right: 0;
+        }
+    }
+
+    .ant-form-item {
+        flex: 0.9;
+        margin-bottom: 0;
+        border: 0.5px solid #ccc;
+        border-radius: 2px;
+    }
+}
+
+@keyframes FadeInMobile {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes FadeOutMobile {
+    to {
+        transform: translateX(-100%);
+        opacity: 1;
+    }
 }
