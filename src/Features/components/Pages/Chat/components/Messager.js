@@ -29,7 +29,7 @@ function Messager({ text, displayName, createdAt, photoURL }) {
                     A
                 </Avatar>
                 <Typography.Text className={cx('author')}>{displayName}</Typography.Text>
-                <Typography.Text className={cx('date')}>{formatDate()}</Typography.Text>
+                <Typography.Text className={cx('date')}>{formatDate(createdAt?.seconds)}</Typography.Text>
             </div>
             <div>
                 <Typography.Text className={cx('content')}>{text}</Typography.Text>
