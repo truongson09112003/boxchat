@@ -29,8 +29,6 @@ function useFirebase(collection, condition) {
         return unsubscribe;
     }, [collection, condition]);
 
-    console.log(documents);
-
     return documents;
 }
 

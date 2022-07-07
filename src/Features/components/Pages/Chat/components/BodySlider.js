@@ -11,8 +11,6 @@ const cx = classNames.bind(styles);
 function BodySlider() {
     const { rooms, setIsAddRoomVisible, setSelectedRoomId } = useContext(AppContext);
 
-    console.log(rooms);
-
     const handleAddRooms = () => {
         setIsAddRoomVisible(true);
     };

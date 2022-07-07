@@ -25,8 +25,6 @@ export default function AppProvider({ children }) {
 
     const selectedRoom = useMemo(() => rooms.find((room) => room.id === selectedRoomId) || {}, [rooms, selectedRoomId]);
 
-    console.log(selectedRoom);
-
     const usersCondition = useMemo(() => {
         return {
             fieldName: 'uid',
