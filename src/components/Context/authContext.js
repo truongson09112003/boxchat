@@ -25,8 +25,6 @@ function AuthContext({ children }) {
 
                 return;
             }
-
-            history('/login');
         });
 
         return () => unmounted();

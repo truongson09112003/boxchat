@@ -1,18 +1,23 @@
 import classNames from 'classnames/bind';
 import { Button } from 'antd';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import styles from '../Chat.module.scss';
-import AuthContext, { AuthContextTU } from './../../../../../components/Context/authContext';
+import { AuthContextTU } from './../../../../../components/Context/authContext';
 import { auth } from '@/components/Firebase';
 
 const cx = classNames.bind(styles);
 
 function UserInfo() {
+    const history = useNavigate();
+
     const data = useContext(AuthContextTU);
 
     const handleLogOut = () => {
         auth.signOut();
+
+        history('/login');
     };
 
     const {

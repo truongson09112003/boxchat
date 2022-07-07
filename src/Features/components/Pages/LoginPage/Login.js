@@ -15,8 +15,19 @@ function Login() {
     const phonePRovider = new firebase.auth.PhoneAuthProvider();
     const gitPRovider = new firebase.auth.GithubAuthProvider();
 
-    const handleLoginFacebook = () => {
-        auth.signInWithPopup(fbPRovider);
+    const handleLoginFacebook = async (provider) => {
+        const { additionalUserInfo, user } = await auth.signInWithPopup(provider);
+
+        if (additionalUserInfo?.isNewUser) {
+            addDocument('users', {
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+                uid: user.uid,
+                providerId: additionalUserInfo.providerId,
+                keywords: generateKeywords(user.displayName?.toLowerCase()),
+            });
+        }
     };
 
     const handleLoginGoogle = async () => {
@@ -34,16 +45,38 @@ function Login() {
         }
     };
 
-    const handleLoginEmail = () => {
-        auth.signInWithPopup(emailPRovider);
+    const handleLoginEmail = async () => {
+        const { additionalUserInfo, user } = await auth.signInWithPopup(emailPRovider);
+
+        if (additionalUserInfo?.isNewUser) {
+            addDocument('users', {
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+                uid: user.uid,
+                providerId: additionalUserInfo.providerId,
+                keywords: generateKeywords(user.displayName?.toLowerCase()),
+            });
+        }
     };
 
     const handleLoginPhone = () => {
         auth.signInWithPopup(phonePRovider);
     };
 
-    const handleLoginGit = () => {
-        auth.signInWithPopup(gitPRovider);
+    const handleLoginGit = async () => {
+        const { additionalUserInfo, user } = await auth.signInWithPopup(gitPRovider);
+
+        if (additionalUserInfo?.isNewUser) {
+            addDocument('users', {
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+                uid: user.uid,
+                providerId: additionalUserInfo.providerId,
+                keywords: generateKeywords(user.displayName?.toLowerCase()),
+            });
+        }
     };
 
     return (
@@ -55,7 +88,7 @@ function Login() {
                 </div>
                 <div className={cx('btn-login')}>
                     <button onClick={handleLoginGoogle}>Đăng Nhập Với Google</button>
-                    <button onClick={handleLoginFacebook}>Đăng Nhập Với Facebook</button>
+                    <button onClick={() => handleLoginFacebook(fbPRovider)}>Đăng Nhập Với Facebook</button>
                     <button onClick={handleLoginEmail}>Đăng Nhập Với Email</button>
                     <button onClick={handleLoginPhone}>Đăng Nhập Với SDT</button>
                     <button onClick={handleLoginGit}>Đăng Nhập Với Github</button>
