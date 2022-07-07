@@ -59,6 +59,8 @@ function ChatBody() {
 
     const messages = useFirebase('messages', condition);
 
+    console.log(messages);
+
     useEffect(() => {
         // scroll to bottom after message changed
         if (messageListRef?.current) {

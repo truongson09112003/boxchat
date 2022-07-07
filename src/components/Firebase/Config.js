@@ -20,6 +20,8 @@ firebase.analytics();
 const auth = firebase.auth();
 const db = firebase.firestore();
 
+// console.log(auth.useEmulator);
+
 // if (window.location.hostname === 'localhost') {
 //     auth.useEmulator('http://localhost:9099');
 //     db.useEmulator('localhost', '8080');
