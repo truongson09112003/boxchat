@@ -151,9 +151,16 @@
 
 .body-chat-text {
     margin-top: 10px;
-    height: 550px;
+    height: 580px;
     max-height: 60%;
-    overflow-y: scroll;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.body-chat-text-group {
+    overflow: scroll;
 }
 
 .df-tr-ef-s {

@@ -23,7 +23,11 @@ function AuthContext({ children }) {
                 setUser({ displayName, email, uid, photoURL });
                 setLoading(!loading);
                 history('/chatapp');
+
+                return;
             }
+
+            history('/login');
         });
 
         return () => unmounted();

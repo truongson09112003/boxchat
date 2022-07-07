@@ -1,10 +1,10 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 import firebase, { auth } from '@/components/Firebase';
 
 import styles from './Login.module.scss';
+import { addDocument, generateKeywords } from './../../../../components/Firebase/services';
 
 const cx = classNames.bind(styles);
 
@@ -15,16 +15,23 @@ function Login() {
     const phonePRovider = new firebase.auth.PhoneAuthProvider();
     const gitPRovider = new firebase.auth.GithubAuthProvider();
 
-    const userJ = useSelector((state) => state.User[0]);
-
-    console.log(userJ);
-
     const handleLoginFacebook = () => {
         auth.signInWithPopup(fbPRovider);
     };
 
-    const handleLoginGoogle = () => {
-        auth.signInWithPopup(ggPRovider);
+    const handleLoginGoogle = async () => {
+        const { additionalUserInfo, user } = await auth.signInWithPopup(ggPRovider);
+
+        if (additionalUserInfo?.isNewUser) {
+            addDocument('users', {
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+                uid: user.uid,
+                providerId: additionalUserInfo.providerId,
+                keywords: generateKeywords(user.displayName?.toLowerCase()),
+            });
+        }
     };
 
     const handleLoginEmail = () => {
